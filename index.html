@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synergent AI Agency — AI That Actually Works</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 180px 0 120px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero .tagline {
+            font-size: 1.75rem;
+            opacity: 0.95;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+        
+        .hero .subtext {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button-outline {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255,255,255,0.5);
+            transition: all 0.2s;
+        }
+        
+        .cta-button-outline:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .trust-badges {
+            margin-top: 60px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Section common */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+            letter-spacing: -0.01em;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* About */
+        .about {
+            background: white;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+            margin-top: 60px;
+        }
+        
+        .about-card {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .about-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a2e;
+        }
+        
+        .about-card p {
+            color: #64748b;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        /* Services */
+        .services {
+            background: #f8fafc;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 48px 36px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+        }
+        
+        .service-card p {
+            color: #64748b;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        
+        .service-features li {
+            padding: 8px 0;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        
+        .service-features li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.25rem;
+        }
+        
+        /* Team */
+        .team {
+            background: white;
+        }
+        
+        .team-lead {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+        }
+        
+        .team-lead h3 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .team-lead .role {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+        
+        .team-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .team-card .avatar {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+        
+        .team-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        
+        .team-card .role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .team-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Process */
+        .process {
+            background: #f8fafc;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 auto 24px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .process-step h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+        }
+        
+        .process-step p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .testimonial-card .quote {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .testimonial-card .avatar {
+            font-size: 2.5rem;
+        }
+        
+        .testimonial-card .name {
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        
+        .testimonial-card .company {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ */
+        .faq {
+            background: #f8fafc;
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        
+        .faq-item summary {
+            padding: 24px 30px;
+            font-weight: 600;
+            color: #1a1a2e;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-item summary:hover {
+            background: #f8fafc;
+        }
+        
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+        
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+        
+        .faq-item p {
+            padding: 0 30px 24px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+        
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.2s, background 0.2s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .contact-card .icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        .contact-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .contact-card p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+        
+        .contact-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button-light {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .cta-button-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            background: #0f0f1a;
+            color: #94a3b8;
+            text-align: center;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 60px;
+        }
+        
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-col a:hover {
+            color: #667eea;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 40px;
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 8px;
+        }
+        
+        .footer-bottom a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Synergent</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Synergent</h1>
+            <p class="tagline">AI That Actually Works</p>
+            <p class="subtext">Stop experimenting with AI demos. We build production-grade AI systems that automate real workflows, create content at scale, and generate qualified leads — all managed by humans who understand your business.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="cta-button">Explore Services</a>
+                <a href="#contact" class="cta-button-outline">Get in Touch</a>
+            </div>
+            <div class="trust-badges">
+                Trusted by ambitious companies that value execution over hype
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Synergent?</h2>
+            <p class="section-subtitle">We're not another AI consultancy selling future dreams. We're builders who ship systems that work today.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="icon">🎯</div>
+                    <h3>Real Results</h3>
+                    <p>Every system we build has clear KPIs. No vanity metrics, no "engagement" — just measurable business outcomes.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">⚡</div>
+                    <h3>Fast Deployment</h3>
+                    <p>Weeks, not months. Our specialized agents work in parallel while our humans ensure quality and alignment.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">🤝</div>
+                    <h3>Human Managed</h3>
+                    <p>AI does the work, humans make the decisions. You get the speed of automation with the judgment of experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">What We Build</h2>
+            <p class="section-subtitle">Four specialized teams. One unified mission: Make AI work for your business.</p>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Assist Team</h3>
+                    <p>AI agents embedded in your operations. From HR onboarding to financial reporting to IT support.</p>
+                    <ul class="service-features">
+                        <li>HR workflow automation</li>
+                        <li>Finance & reporting agents</li>
+                        <li>IT helpdesk automation</li>
+                        <li>Document processing</li>
+                    </ul>
+                    <div class="price">From $2,000/month</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Flow Team</h3>
+                    <p>Custom automation that connects your entire stack. We build bridges between tools that don't talk to each other.</p>
+                    <ul class="service-features">
+                        <li>Cross-platform integrations</li>
+                        <li>Data pipeline automation</li>
+                        <li>Custom API development</li>
+                        <li>Workflow orchestration</li>
+                    </ul>
+                    <div class="price">From $2,500 + $500/month</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3>Motion Team</h3>
+                    <p>AI-powered content at scale. Video, copy, graphics — produced faster without losing your brand voice.</p>
+                    <ul class="service-features">
+                        <li>AI video production</li>
+                        <li>Copywriting & content</li>
+                        <li>Social media automation</li>
+                        <li>Brand asset generation</li>
+                    </ul>
+                    <div class="price">65-75% margin optimization</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Growth Team</h3>
+                    <p>Acquisition systems that find, qualify, and nurture leads while you sleep. Scale without scaling headcount.</p>
+                    <ul class="service-features">
+                        <li>Lead generation automation</li>
+                        <li>Qualification systems</li>
+                        <li>Nurture sequences</li>
+                        <li>Analytics & optimization</li>
+                    </ul>
+                    <div class="price">$0.99 per qualified lead</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title">How We Work</h2>
+            <p class="section-subtitle">An agency of AI agents, orchestrated by humans who understand business.</p>
+            
+            <div class="team-lead">
+                <h3>Harry</h3>
+                <div class="role">Business Team Manager</div>
+                <p style="margin-top: 16px; opacity: 0.9;">Your primary point of contact. Harry coordinates between teams, ensures quality, and makes sure we deliver on time.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">👥</div>
+                    <h4>Assist Team</h4>
+                    <div class="role">Operations</div>
+                    <p>HR-Assist, Finance-Assist, IT-Assist — specialized agents for back-office automation.</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">⚙️</div>
+                    <h4>Flow Team</h4>
+                    <div class="role">Automation</div>
+                    <p>Automation Engineers who build custom integrations and workflow systems.</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">🎨</div>
+                    <h4>Motion Team</h4>
+                    <div class="role">Content</div>
+                    <p>Content Creators leveraging AI for video, copy, and design at scale.</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">📈</div>
+                    <h4>Growth Team</h4>
+                    <div class="role">Acquisition</div>
+                    <p>Acquisition Specialists focused on lead generation and conversion optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <p class="section-subtitle">From idea to production in weeks, not months.</p>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Discovery</h4>
+                    <p>We audit your current workflows, identify pain points, and map where AI can deliver real ROI.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Architecture</h4>
+                    <p>Our agents design the system architecture. Humans review, refine, and ensure business alignment.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Build</h4>
+                    <p>Parallel development across teams. AI handles the heavy lifting, humans ensure quality.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Deploy</h4>
+                    <p>Full implementation with documentation, training, and ongoing support. You're never left hanging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Clients Say</h2>
+            <p class="section-subtitle">Real feedback from companies that stopped experimenting and started executing.</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"Synergent didn't just build us an AI system — they built a revenue engine. Our lead qualification is now 100% automated and conversion rates are up 40%."</p>
+                    <div class="author">
+                        <div class="avatar">👤</div>
+                        <div>
+                            <div class="name">Sarah Chen</div>
+                            <div class="company">Growth Lead, TechStart Inc.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"The Assist Team handles our entire onboarding process now. What used to take 2 days now takes 2 hours. And the quality is actually better."</p>
+                    <div class="author">
+                        <div class="avatar">👤</div>
+                        <div>
+                            <div class="name">Marcus Johnson</div>
+                            <div class="company">COO, ScaleUp Partners</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Finally, an AI agency that talks about business outcomes instead of model specs. They're builders, not researchers."</p>
+                    <div class="author">
+                        <div class="avatar">👤</div>
+                        <div>
+                            <div class="name">Elena Rodriguez</div>
+                            <div class="company">Founder, AutomateNow</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Common Questions</h2>
+            <p class="section-subtitle">Everything you need to know about working with Synergent.</p>
+            
+            <div class="faq-grid">
+                <details class="faq-item">
+                    <summary>How long does a typical project take?</summary>
+                    <p>Most projects go live in 2-4 weeks. Simple automations can be deployed within days. Complex multi-system integrations might take 6-8 weeks. We'll give you a realistic timeline during discovery.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Do I need technical knowledge to work with you?</summary>
+                    <p>No. We speak business, not just tech. Harry (your manager) translates between your goals and our technical execution. You focus on outcomes, we handle the implementation.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>What happens after deployment?</summary>
+                    <p>We don't disappear after launch. All projects include 30 days of support, documentation, and training. Most clients move to a monthly retainer for ongoing optimization and new features.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>How do you handle data security?</summary>
+                    <p>We're paranoid about security. All systems follow least-privilege access, data is encrypted in transit and at rest, and we never train models on your proprietary data. We can sign NDAs and work within your compliance requirements.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Can you integrate with our existing tools?</summary>
+                    <p>Absolutely. We specialize in connecting disparate systems. Whether you're on Salesforce, HubSpot, Notion, Slack, or custom internal tools, we build bridges that make everything work together.</p>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>What if the AI makes a mistake?</summary>
+                    <p>Humans review critical decisions, especially in the beginning. We build confidence thresholds and escalation paths. Over time, the system gets better and requires less oversight — but the human layer never disappears.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Build Something</h2>
+            <p class="section-subtitle">Ready to stop experimenting and start executing? Tell us what you're working on.</p>
+            
+            <div class="contact-options">
+                <div class="contact-card">
+                    <div class="icon">📧</div>
+                    <h4>Email Us</h4>
+                    <p>Share your project details and we'll get back within 24 hours.</p>
+                    <a href="mailto:hello@synergent.ai">hello@synergent.ai</a>
+                </div>
+                <div class="contact-card">
+                    <div class="icon">💬</div>
+                    <h4>Quick Question</h4>
+                    <p>Just want to know if we can help? Send a message.</p>
+                    <a href="https://t.me/yourtelegram" target="_blank">Telegram @synergent</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Actually Use AI?</h2>
+            <p>Stop waiting for the perfect AI solution. Start building the one that works for your business today.</p>
+            <a href="mailto:hello@synergent.ai" class="cta-button-light">Start a Project</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Synergent</h4>
+                    <p style="color: #94a3b8; line-height: 1.7;">AI systems that actually work. Built by specialized agents, managed by humans.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Assist Team</a></li>
+                        <li><a href="#services">Flow Team</a></li>
+                        <li><a href="#services">Motion Team</a></li>
+                        <li><a href="#services">Growth Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:hello@synergent.ai">Email</a></li>
+                        <li><a href="https://github.com/jarvismww-cyber">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Built with 🤖 by <a href="https://github.com/jarvismww-cyber">Jarvis</a> for Synergent AI Agency</p>
+                <p style="font-size: 0.85rem; margin-top: 8px; opacity: 0.7;">© 2026 Synergent. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
